@@ -8,17 +8,17 @@ export default function Default(props) {
       <TextInput
         style={customizableStyle(
           styles.input(props.border, props.disable),
-          props.style,
+          props.inputStyle,
         )}
         value={props.value}
         onChangeText={props.onChangeText}
         editable={!props.disable}
+        onBlur={props.onBlurForm}
+        secureTextEntry={props.hidePassword}
         selectTextOnFocus={!props.disable}
         textAlign={props.textAlign}
         onFocus={props.onFocusForm}
-        onBlur={props.onBlurForm}
         keyboardType={props.keyboardType}
-        placeholder={props.placeholder}
         placeholderTextColor={colors.text.tertiary}
         multiline={props.multiline}
         numberOfLines={props.numberOfLines}
@@ -26,8 +26,7 @@ export default function Default(props) {
         onSubmitEditing={props.onSubmitEditing}
         autoCapitalize={props.autoCapitalize}
         onChange={props.onChange}
-        onEndEditing={props.onEndEditing}
-        autoCompleteType={props.autoCompleteType}
+        {...props}
       />
     </View>
   );
@@ -43,7 +42,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: badge && badgePos === 'right' ? 0 : 5,
     borderTopRightRadius: badge && badgePos === 'right' ? 0 : 5,
     backgroundColor: disable ? colors.tertiary : colors.white,
-    color: colors.text.normal,
+    color: colors.text.primary,
     paddingHorizontal: 12,
     paddingVertical: 5,
     textAlign: 'center',

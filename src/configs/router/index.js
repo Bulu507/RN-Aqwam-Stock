@@ -1,12 +1,18 @@
 import React from 'react';
+import {Home, Login, ScanPage, Splash} from '../../pages';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Home, ScanPage} from '../../pages';
+import {BottomTab} from '../../components';
 
 const Stack = createStackNavigator();
 
 export default function Router() {
   return (
-    <Stack.Navigator initialRouteName="Home">
+    <Stack.Navigator initialRouteName="Splash">
+      <Stack.Screen
+        name="HomeScreen"
+        component={BottomTab}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="Home"
         component={Home}
@@ -15,6 +21,16 @@ export default function Router() {
       <Stack.Screen
         name="ScanPage"
         component={ScanPage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Splash"
+        component={Splash}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Login"
+        component={Login}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

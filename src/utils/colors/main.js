@@ -7,5 +7,6 @@ const blue = {
 export const mainColor = {
   white: '#ffffff',
   black: '#000000',
+  black1: 'rgba(0, 0, 0, 0.5)',
   blue: blue,
 };

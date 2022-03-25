@@ -7,14 +7,16 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useFocusEffect} from '@react-navigation/native';
 import {colors} from '../../../utils';
 import Alert from '../Alert';
+import {setLogout} from '../../../configs';
 
-export default function OptionBar() {
+export default function OptionBar(props) {
   const H = Dimensions.get('window').height;
   const W = Dimensions.get('window').width;
   const [visible, setVisible] = useState(false);
   const [alertVisible, setAlertVisible] = useState(false);
   const globalReducer = useSelector((state) => state.globalReducer);
   const dispatch = useDispatch();
+  const navigation = props.navigation;
 
   // on will unmount (post cleanup)
   useFocusEffect(
@@ -30,13 +32,21 @@ export default function OptionBar() {
     setVisible(!visible);
   };
 
+  const handleLogout = async () => {
+    dispatch({type: 'SET_LOADING', value: true});
+    dispatch(setLogout(navigation));
+    setAlertVisible(false);
+    setVisible(false);
+    dispatch({type: 'SET_LOADING', value: false});
+  };
+
   return (
     <>
       <Alert
         visible={alertVisible}
         close={() => setAlertVisible(false)}
         message="Apakah anda yakin untuk keluar aplikasi ?"
-        // onConfirm={() => handleLogout()}
+        onConfirm={() => handleLogout()}
       />
       <Button
         icon="mc dots-vertical"

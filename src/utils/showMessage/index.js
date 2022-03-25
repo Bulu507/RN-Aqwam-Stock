@@ -6,7 +6,7 @@ export const showError = (message) => {
     message: message,
     type: 'default',
     backgroundColor: colors.danger,
-    color: colors.text.primary,
+    color: colors.text.secondary,
   });
 };
 
@@ -15,7 +15,7 @@ export const showSuccess = (message) => {
     message: message,
     type: 'default',
     backgroundColor: colors.success,
-    color: colors.text.primary,
+    color: colors.text.secondary,
   });
 };
 
@@ -24,6 +24,6 @@ export const showWarning = (message) => {
     message: message,
     type: 'default',
     backgroundColor: colors.warn,
-    color: colors.text.primary,
+    color: colors.text.secondary,
   });
 };

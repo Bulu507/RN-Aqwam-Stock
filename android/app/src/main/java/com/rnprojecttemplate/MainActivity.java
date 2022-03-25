@@ -1,6 +1,10 @@
 package com.rnprojecttemplate;
 
 import com.facebook.react.ReactActivity;
+import net.zubricky.AndroidKeyboardAdjust.AndroidKeyboardAdjustPackage;
+import java.util.Arrays;
+import java.util.List;
+import com.facebook.react.ReactPackage;
 
 public class MainActivity extends ReactActivity {
 
@@ -12,4 +16,10 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "RNProjectTemplate";
   }
+
+  protected List<ReactPackage> getPackages() {
+    return Arrays.<ReactPackage>asList(
+        new AndroidKeyboardAdjustPackage()
+    );
+}
 }

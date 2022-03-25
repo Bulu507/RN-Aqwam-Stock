@@ -6,19 +6,21 @@ import Back from './Back';
 import Option from './Option';
 
 export default function Header(props) {
+  const navigation = props.navigation;
   return (
     <View style={styles.containerRow}>
-      <Content {...props} />
+      <Content {...props} navigation={navigation} />
     </View>
   );
 }
 
 const Content = (props) => {
   const type = props.type;
+  const navigation = props.navigation;
   if (isEqual(type, 'back')) {
     return <Back {...props} />;
   }
-  return <Option {...props} />;
+  return <Option {...props} navigation={navigation} />;
 };
 
 const windowHeight = Dimensions.get('window').height;
@@ -32,5 +34,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 20,
     height: height,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
 });

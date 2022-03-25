@@ -1,24 +1,18 @@
-import React, {useState} from 'react';
-import {colors} from '../../../utils';
+import {isEqual} from 'lodash';
+import React from 'react';
 import Default from './Default';
+import Password from './Password';
+import Search from './Search';
 
 export default function InputContent(props) {
-  const [border, setBorder] = useState(colors.border);
+  const type = props.type;
 
-  const onFocusForm = () => {
-    setBorder(props.borderFocus ? props.borderFocus : colors.light);
-  };
+  if (isEqual(type, 'password')) {
+    return <Password {...props} />;
+  }
+  if (isEqual(type, 'search')) {
+    return <Search {...props} />;
+  }
 
-  const onBlurForm = () => {
-    setBorder(colors.black);
-  };
-
-  return (
-    <Default
-      {...props}
-      onFocusForm={onFocusForm}
-      onBlurForm={onBlurForm}
-      border={border}
-    />
-  );
+  return <Default {...props} />;
 }

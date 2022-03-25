@@ -5,13 +5,17 @@ import {mainColor} from './main';
 export const colors = {
   white: mainColor.white,
   black: mainColor.black,
-  primary: mainColor.blue[1],
-  dark: mainColor.blue[2],
-  light: mainColor.blue[3],
+  primary: Color.Red,
+  dark: Color.RED[800],
+  light: Color.RED[300],
   tertiary: Color.GREY[200],
   background: Color.GREY[200],
+  backdrop: mainColor.black1,
+  border: Color.GREY[300],
   danger: Color.Red,
   warn: Color.Yellow,
   success: Color.GREEN[400],
   text,
 };
+
+export const materialColor = Color;

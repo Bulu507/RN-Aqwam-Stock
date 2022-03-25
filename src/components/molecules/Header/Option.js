@@ -9,7 +9,7 @@ export default function Option(props) {
     <>
       <Gap width={20} />
       <Text style={styles.title}>{props.title}</Text>
-      <OptionBar />
+      <OptionBar {...props} />
     </>
   );
 }
