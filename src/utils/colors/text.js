@@ -5,5 +5,6 @@ export const text = {
   white: mainColor.white,
   black: Color.GREY[800],
   primary: Color.GREY[800],
+  secondary: mainColor.white,
   tertiary: Color.GREY[300],
 };

@@ -1,3 +1,4 @@
 import Home from './Home';
+import ScanPage from './ScanPage';
 
-export {Home};
+export {Home, ScanPage};

@@ -7,7 +7,7 @@ import IconMI from 'react-native-vector-icons/MaterialIcons';
 import IconOC from 'react-native-vector-icons/Octicons';
 
 export default function Icons({icon, size, style}) {
-  const [iconType, iconName] = icon.split('-');
+  const [iconType, iconName] = icon.split(' ');
   const Icon = () => {
     if (iconType === 'fa') {
       return <IconFA name={iconName} size={size} style={style} />;

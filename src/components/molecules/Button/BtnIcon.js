@@ -8,7 +8,9 @@ export default function BtnIcon(props) {
   let posLeft = false;
   let posRight = false;
   let iconOnly = false;
-  let [icon, position] = props.icon.split(' ');
+  let iconSplit = props.icon.split(' ');
+  let icon = `${iconSplit[0]} ${iconSplit[1]}`;
+  let position = iconSplit[2];
 
   console.log('cek position', position);
 
@@ -77,11 +79,11 @@ export default function BtnIcon(props) {
 
 const styles = StyleSheet.create({
   container: {alignItems: 'center', flexDirection: 'row'},
-  icon: {color: colors.text.white},
+  icon: {color: colors.text.secondary},
   labelBtn: {
     fontFamily: fonts.primary.bold,
     fontSize: 12,
-    color: colors.text.white,
+    color: colors.text.secondary,
   },
   info: {
     backgroundColor: colors.primary,
@@ -92,6 +94,6 @@ const styles = StyleSheet.create({
   labelInfo: {
     fontFamily: fonts.primary.normal,
     fontSize: 8,
-    color: colors.text.white,
+    color: colors.text.secondary,
   },
 });

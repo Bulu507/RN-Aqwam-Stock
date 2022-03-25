@@ -1,14 +1,25 @@
-import {StyleSheet, Text, View, Dimensions} from 'react-native';
+import {isEqual} from 'lodash';
 import React from 'react';
+import {Dimensions, StyleSheet, View} from 'react-native';
 import {colors} from '../../../utils';
+import Back from './Back';
+import Option from './Option';
 
-export default function Header() {
+export default function Header(props) {
   return (
     <View style={styles.containerRow}>
-      <Text>Header</Text>
+      <Content {...props} />
     </View>
   );
 }
+
+const Content = (props) => {
+  const type = props.type;
+  if (isEqual(type, 'back')) {
+    return <Back {...props} />;
+  }
+  return <Option {...props} />;
+};
 
 const windowHeight = Dimensions.get('window').height;
 const height = (windowHeight * 8) / 100;
