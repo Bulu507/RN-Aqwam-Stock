@@ -1,11 +1,11 @@
 import {showMessage} from 'react-native-flash-message';
-import {colors} from '../colors';
+import {colors, materialColor} from '../colors';
 
 export const showError = (message) => {
   showMessage({
     message: message,
     type: 'default',
-    backgroundColor: colors.danger,
+    backgroundColor: materialColor.RED[300],
     color: colors.text.secondary,
   });
 };

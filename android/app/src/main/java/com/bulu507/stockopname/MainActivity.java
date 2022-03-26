@@ -1,4 +1,4 @@
-package com.rnprojecttemplate;
+package com.bulu507.stockopname;
 
 import com.facebook.react.ReactActivity;
 import net.zubricky.AndroidKeyboardAdjust.AndroidKeyboardAdjustPackage;

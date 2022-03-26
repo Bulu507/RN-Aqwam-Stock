@@ -17,17 +17,17 @@ const dummyUser = {
 
 export default function Login({navigation}) {
   const dispatch = useDispatch();
-  // const [form, setForm] = useForm({
-  //   email: '',
-  //   password: '',
-  // });
-  const [form, setForm] = useForm(dummyUser);
+  const [form, setForm] = useForm({
+    email: '',
+    password: '',
+  });
+  // const [form, setForm] = useForm(dummyUser);
 
   // // dummy auto login
-  useEffect(() => {
-    handleSubmit();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   handleSubmit();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   AndroidKeyboardAdjust.setAdjustPan();
 
@@ -42,6 +42,7 @@ export default function Login({navigation}) {
     try {
       const result = await AuthService.Login(form);
       const data = result.data.result;
+      console.log('cek login', data);
       storeData(localDataPath.DATA_USER, data);
       navigation.replace('HomeScreen');
     } catch (error) {

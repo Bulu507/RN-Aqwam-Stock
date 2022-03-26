@@ -2,12 +2,24 @@ import {StyleSheet, Dimensions, Text, View, Image} from 'react-native';
 import React, {useEffect} from 'react';
 import {colors, materialColor} from '../../utils';
 import {ILLogo} from '../../assets';
+import {getData} from '../../services';
+import {localDataPath} from '../../parameter';
+import {isEmpty} from 'lodash';
 
 export default function Splash({navigation}) {
   useEffect(() => {
-    setTimeout(() => {
-      navigation.replace('Login');
-    }, 3000);
+    const checkUser = async () => {
+      const data = await getData(localDataPath.DATA_USER);
+      setTimeout(() => {
+        if (isEmpty(data)) {
+          navigation.replace('Login');
+        } else {
+          navigation.replace('HomeScreen');
+        }
+      }, 3000);
+    };
+
+    checkUser();
   }, [navigation]);
 
   return (

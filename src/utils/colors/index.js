@@ -5,9 +5,9 @@ import {mainColor} from './main';
 export const colors = {
   white: mainColor.white,
   black: mainColor.black,
-  primary: Color.Red,
-  dark: Color.RED[800],
-  light: Color.RED[300],
+  primary: mainColor.red[1],
+  dark: mainColor.red[2],
+  light: mainColor.red[3],
   tertiary: Color.GREY[200],
   disable: Color.GREY[400],
   background: Color.GREY[200],

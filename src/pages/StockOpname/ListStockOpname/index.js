@@ -1,7 +1,7 @@
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {Gap, Header, Input, NullData, RefreshArea} from '../../../components';
-import {globalStyle, useForm} from '../../../utils';
+import {globalStyle, showError, showWarning, useForm} from '../../../utils';
 import Cards from './Cards';
 import {useDispatch, useSelector} from 'react-redux';
 import {GetListStock} from '../../../configs';
