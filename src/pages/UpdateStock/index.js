@@ -14,7 +14,7 @@ import {resetStockForm, setLoadingGlobal, setStockForm} from '../../configs';
 import {AddStock} from '../../services';
 
 export default function UpdateStock({navigation, route}) {
-  const data = route.params;
+  const title = route.params;
   const dispatch = useDispatch();
   const {stockForm} = useSelector((state) => state.stockReducer);
   const [form, setform] = useForm({
@@ -22,7 +22,6 @@ export default function UpdateStock({navigation, route}) {
     quantity: 1,
   });
   const [showAlert, setShowAlert] = useState(false);
-  const title = data?.nama_product;
 
   const onChangeText = (key, value) => {
     setform(key, value);
@@ -46,9 +45,9 @@ export default function UpdateStock({navigation, route}) {
       const result = await AddStock(stockForm);
       dispatch(resetStockForm());
       console.log('cek add', result);
-      navigation.goBack();
       showSuccess('Data Stock Opname Berhasil Diupdate!');
-      // navigation.navigate('ScanPage');
+      // navigation.goBack();
+      navigation.navigate('HomeScreen');
     } catch (error) {
       console.log('error', error);
       showError('Terjadi kendala');
@@ -62,7 +61,6 @@ export default function UpdateStock({navigation, route}) {
     navigation.goBack();
   };
 
-  console.log('cek data', data);
   console.log('cek form', form);
   console.log('cek stockForm', stockForm);
   return (

@@ -9,6 +9,10 @@ export const ShowStockOpname = (params) => {
   return GET('/GetDetailListStockOpnameAdmin', {idBuku: params});
 };
 
+export const GetBooksByBarcode = (params) => {
+  return GET('/GetProductDetailbyBarcode', {barcode: params});
+};
+
 // POST
 export const DeleteStock = (params) => {
   return POST('/DeleteStockOpnameAdmin', {idSO: params});

@@ -43,7 +43,7 @@ export default function Login({navigation}) {
       const result = await AuthService.Login(form);
       const data = result.data.result;
       storeData(localDataPath.DATA_USER, data);
-      navigation.navigate('HomeScreen');
+      navigation.replace('HomeScreen');
     } catch (error) {
       console.log('error', error);
       showError(error.response_msg);

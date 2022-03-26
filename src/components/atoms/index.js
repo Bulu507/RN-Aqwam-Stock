@@ -7,6 +7,7 @@ import InputBox from './InputBox';
 import Loading from './Loading';
 import NullData from './NullData';
 import LoadBar from './LoadBar';
+import RefreshArea from './RefreshArea';
 
 export {
   Gap,
@@ -18,4 +19,5 @@ export {
   Loading,
   NullData,
   LoadBar,
+  RefreshArea,
 };

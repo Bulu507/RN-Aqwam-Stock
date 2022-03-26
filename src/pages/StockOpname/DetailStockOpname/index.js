@@ -1,7 +1,7 @@
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import {colors, fonts, globalStyle, showError} from '../../../utils';
-import {Gap, Header, LoadBar, NullData} from '../../../components';
+import {Gap, Header, LoadBar, NullData, RefreshArea} from '../../../components';
 import {useDispatch} from 'react-redux';
 import {setLoadingGlobal} from '../../../configs';
 import {DeleteStock, ShowStockOpname} from '../../../services';
@@ -40,7 +40,7 @@ export default function DetailStockOpname({navigation, route}) {
   const handleDelete = async (item) => {
     dispatch(setLoadingGlobal(true));
     try {
-      const result = await DeleteStock(idBook);
+      const result = await DeleteStock(item.id);
       console.log('cek delete', result);
       fetchData();
     } catch (error) {
@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
   },
   listWrapper: {
     flexGrow: 1,
+    flex: 1,
     backgroundColor: colors.white,
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,

@@ -1,6 +1,6 @@
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {Gap, Header, Input, NullData} from '../../../components';
+import {Gap, Header, Input, NullData, RefreshArea} from '../../../components';
 import {globalStyle, useForm} from '../../../utils';
 import Cards from './Cards';
 import {useDispatch, useSelector} from 'react-redux';
@@ -20,6 +20,10 @@ export default function ListStockOpname({navigation}) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [form.searchParams]);
 
+  const refresh = () => {
+    dispatch(GetListStock(form.searchParams));
+  };
+
   console.log('cek listData', listData);
   return (
     <View style={globalStyle.page}>
@@ -33,25 +37,26 @@ export default function ListStockOpname({navigation}) {
           onChangeText={(value) => setForm('search', value)}
           onSubmitEditing={() => setForm('searchParams', form.search)}
         />
-        <ScrollView contentContainerStyle={styles.scrollView}>
-          {isEmpty(listData) ? (
-            <NullData />
-          ) : (
-            listData?.map((item, idx) => {
-              return (
-                <Cards
-                  key={idx}
-                  data={item}
-                  onPress={() =>
-                    // navigation.navigate('DetailStockOpname', item.idBuku)
-                    navigation.navigate('ScanPage', item.idBuku)
-                  }
-                />
-              );
-            })
-          )}
-        </ScrollView>
-        <Gap height={180} />
+        <RefreshArea onRefresh={() => refresh()}>
+          <ScrollView contentContainerStyle={styles.scrollView}>
+            {isEmpty(listData) ? (
+              <NullData />
+            ) : (
+              listData?.map((item, idx) => {
+                return (
+                  <Cards
+                    key={idx}
+                    data={item}
+                    onPress={() =>
+                      navigation.navigate('DetailStockOpname', item.idBuku)
+                    }
+                  />
+                );
+              })
+            )}
+            <Gap height={180} />
+          </ScrollView>
+        </RefreshArea>
       </View>
     </View>
   );

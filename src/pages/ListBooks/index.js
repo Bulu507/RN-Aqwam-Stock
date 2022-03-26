@@ -24,11 +24,11 @@ export default function ListBooks({navigation}) {
     console.log('cek item', item);
     dispatch(
       replaceStockForm({
-        idBuku: item.id,
+        idBuku: item.code_product,
         barcode: item.barcode,
       }),
     );
-    navigation.navigate('UpdateStock', item);
+    navigation.navigate('UpdateStock', item.nama_product);
   };
 
   console.log('cek listData', listData);
