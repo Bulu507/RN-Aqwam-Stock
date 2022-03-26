@@ -13,3 +13,7 @@ export const ShowStockOpname = (params) => {
 export const DeleteStock = (params) => {
   return POST('/DeleteStockOpnameAdmin', {idSO: params});
 };
+
+export const AddStock = (params) => {
+  return POST('/AddStockOpnameAdmin', params);
+};

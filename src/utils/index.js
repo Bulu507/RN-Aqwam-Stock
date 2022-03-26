@@ -4,3 +4,4 @@ export * from './fonts';
 export * from './showMessage';
 export * from './customController';
 export * from './validate';
+export * from './data';

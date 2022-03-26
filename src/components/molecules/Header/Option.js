@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   title: {
     color: colors.text.secondary,
     fontFamily: fonts.primary[700],
-    fontSize: 15,
+    fontSize: 18,
     fontWeight: 'bold',
   },
 });

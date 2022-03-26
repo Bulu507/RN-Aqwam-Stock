@@ -9,6 +9,7 @@ export const colors = {
   dark: Color.RED[800],
   light: Color.RED[300],
   tertiary: Color.GREY[200],
+  disable: Color.GREY[400],
   background: Color.GREY[200],
   backdrop: mainColor.black1,
   border: Color.GREY[300],

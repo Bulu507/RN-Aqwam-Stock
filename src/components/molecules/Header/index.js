@@ -3,6 +3,7 @@ import React from 'react';
 import {Dimensions, StyleSheet, View} from 'react-native';
 import {colors} from '../../../utils';
 import Back from './Back';
+import Close from './Close';
 import Option from './Option';
 
 export default function Header(props) {
@@ -19,6 +20,9 @@ const Content = (props) => {
   const navigation = props.navigation;
   if (isEqual(type, 'back')) {
     return <Back {...props} />;
+  }
+  if (isEqual(type, 'close')) {
+    return <Close {...props} />;
   }
   return <Option {...props} navigation={navigation} />;
 };

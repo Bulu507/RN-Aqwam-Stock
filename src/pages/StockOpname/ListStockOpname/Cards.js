@@ -44,6 +44,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    shadowColor: colors.black,
+    shadowOpacity: 0.06,
+    shadowOffset: {
+      width: 10,
+      height: 10,
+    },
   },
   left: {
     width: '70%',

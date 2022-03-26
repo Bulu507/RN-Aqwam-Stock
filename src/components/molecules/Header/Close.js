@@ -1,20 +1,20 @@
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {StyleSheet, Text} from 'react-native';
 import {colors, fonts} from '../../../utils';
-import {Gap} from '../../atoms';
 import Button from '../Button';
+import {Gap} from '../../atoms';
 
-export default function Back(props) {
+export default function Close(props) {
   return (
     <>
+      <Gap width={20} />
+      <Text style={styles.title}>{props.title}</Text>
       <Button
-        icon="mi arrow-back"
+        icon="mc window-close"
         iconSize={25}
         style={styles.btn}
         onPress={props.onPress}
       />
-      <Text style={styles.title}>{props.title}</Text>
-      <Gap width={20} />
     </>
   );
 }

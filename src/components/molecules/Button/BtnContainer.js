@@ -39,5 +39,5 @@ const disableDefault = {
 };
 
 const styles = StyleSheet.create({
-  disable: {backgroundColor: colors.tertiary},
+  disable: {backgroundColor: colors.disable},
 });

@@ -1,11 +1,12 @@
 import React from 'react';
 import {
-  Home,
   Login,
   ScanPage,
   Splash,
   ListStockOpname,
   DetailStockOpname,
+  UpdateStock,
+  ListBooks,
 } from '../../pages';
 import {createStackNavigator} from '@react-navigation/stack';
 import {BottomTab} from '../../components';
@@ -18,11 +19,6 @@ export default function Router() {
       <Stack.Screen
         name="HomeScreen"
         component={BottomTab}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Home"
-        component={Home}
         options={{headerShown: false}}
       />
       <Stack.Screen
@@ -48,6 +44,16 @@ export default function Router() {
       <Stack.Screen
         name="DetailStockOpname"
         component={DetailStockOpname}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="UpdateStock"
+        component={UpdateStock}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ListBooks"
+        component={ListBooks}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

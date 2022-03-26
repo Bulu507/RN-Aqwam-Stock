@@ -2,6 +2,7 @@ import {GetListStockOpname} from '../../../../services';
 import {showError} from '../../../../utils';
 import {setLoadingGlobal} from '../globalAction';
 
+// Stock
 export const setStock = (key, value) => (dispatch) => {
   dispatch({type: 'SET_STOCK', key: key, value: value});
 };
@@ -26,4 +27,17 @@ export const GetListStock = (search) => async (dispatch) => {
     showError('Terjadi kendala');
   }
   dispatch(setLoadingGlobal(false));
+};
+
+// Stock Form
+export const setStockForm = (key, value) => (dispatch) => {
+  dispatch({type: 'SET_STOCK_FORM', key: key, value: value});
+};
+
+export const resetStockForm = () => (dispatch) => {
+  dispatch({type: 'RESET_STOCK_FORM'});
+};
+
+export const replaceStockForm = (value) => (dispatch) => {
+  dispatch({type: 'REPLACE_STOCK_FORM', value: value});
 };
