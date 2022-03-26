@@ -1,7 +1,7 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {Home, ScanPage, StockOpname} from '../../../pages';
+import {Home, ScanPage, ListStockOpname} from '../../../pages';
 import {colors} from '../../../utils';
 import {Icons} from '../../atoms';
 
@@ -15,8 +15,8 @@ export default function BottomTab() {
         tabBarStyle: styles.container,
       }}>
       <Tab.Screen
-        name="StockOpname"
-        component={StockOpname}
+        name="ListStockOpname"
+        component={ListStockOpname}
         options={{
           headerShown: false,
           tabBarIcon: ({focused}) => (

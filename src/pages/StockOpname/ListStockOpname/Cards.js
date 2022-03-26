@@ -1,26 +1,29 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {Gap, Icons} from '../../components';
-import {colors, fonts, materialColor} from '../../utils';
-import {ILBooks} from '../../assets';
+import {Gap, Icons} from '../../../components';
+import {colors, fonts, materialColor} from '../../../utils';
+import {isEqual} from 'lodash';
 
-export default function Cards() {
+export default function Cards(props) {
+  const data = props.data;
+  const title = data?.judulBuku;
+  const stock = data?.stockBaru;
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={props.onPress}>
       <View style={styles.left}>
-        <Text style={styles.title}>Atomic Habbits</Text>
+        <Text style={styles.title}>{title}</Text>
         <Gap height={5} />
         <Text style={styles.label}>
-          Scans Buku: <Text style={styles.info}>{250}</Text>
+          Scans Buku: <Text style={styles.info}>{stock}</Text>
         </Text>
       </View>
-      <Picture image={ILBooks} />
-    </View>
+      <Picture image={data?.gambar} />
+    </TouchableOpacity>
   );
 }
 
 const Picture = (props) => {
-  const image = props.image;
+  const image = isEqual(props.image, '-') ? null : props.image;
   return (
     <View style={styles.imageWrapper}>
       {image ? (
@@ -42,10 +45,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  left: {
+    width: '70%',
+  },
   title: {
     fontFamily: fonts.primary.bold,
     fontSize: 18,
     color: colors.text.primary,
+    flexShrink: 1,
   },
   label: {
     fontFamily: fonts.primary.normal,

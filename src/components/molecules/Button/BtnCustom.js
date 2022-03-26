@@ -5,6 +5,17 @@ import {colors, customizableStyle} from '../../../utils';
 import ButtonContainer from './BtnContainer';
 
 export default function BtnCustom(props) {
+  if (props.type === 'delete') {
+    return (
+      <ButtonContainer
+        {...props}
+        icon="mc trash-can-outline left"
+        title="Hapus"
+        style={customizableStyle(styles.btnDelete, props.style)}
+        labelStyle={customizableStyle({}, props.labelStyle)}
+      />
+    );
+  }
   return (
     <View>
       <Text />
@@ -22,4 +33,10 @@ const styles = StyleSheet.create({
     color: color ? color : colors.primary,
     fontSize: size ? size : 16,
   }),
+  btnDelete: {
+    paddingVertical: 3,
+    paddingHorizontal: 10,
+    borderRadius: 5,
+    backgroundColor: colors.danger,
+  },
 });

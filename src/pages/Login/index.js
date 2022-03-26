@@ -5,7 +5,7 @@ import AndroidKeyboardAdjust from 'react-native-android-keyboard-adjust';
 import {useDispatch} from 'react-redux';
 import {ILLogo} from '../../assets';
 import {Button, Gap, Input} from '../../components';
-import {setLoading} from '../../configs';
+import {setLoadingGlobal} from '../../configs';
 import {localDataPath} from '../../parameter';
 import {AuthService, storeData} from '../../services';
 import {colors, fonts, showError, useForm, validateLogin} from '../../utils';
@@ -38,7 +38,7 @@ export default function Login({navigation}) {
     }
 
     console.log('cek masuk login');
-    dispatch(setLoading(true));
+    dispatch(setLoadingGlobal(true));
     try {
       const result = await AuthService.Login(form);
       const data = result.data.result;
@@ -48,7 +48,7 @@ export default function Login({navigation}) {
       console.log('error', error);
       showError(error.response_msg);
     }
-    dispatch(setLoading(false));
+    dispatch(setLoadingGlobal(false));
   };
 
   return (
@@ -62,8 +62,8 @@ export default function Login({navigation}) {
         <Input
           placeholder="Username"
           autoCapitalize="none"
-          value={form.email}
           keyboardType="email-address"
+          value={form.email}
           onChangeText={(value) => setForm('email', value)}
         />
         <Gap height={15} />

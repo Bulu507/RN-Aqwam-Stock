@@ -12,8 +12,6 @@ export default function BtnIcon(props) {
   let icon = `${iconSplit[0]} ${iconSplit[1]}`;
   let position = iconSplit[2];
 
-  console.log('cek position', position);
-
   switch (position) {
     case 'left':
       posLeft = true;

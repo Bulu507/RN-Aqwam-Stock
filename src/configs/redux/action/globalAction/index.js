@@ -1,7 +1,7 @@
 import {AuthService} from '../../../../services';
 import {showError} from '../../../../utils';
 
-export const setLoading = (value) => (dispatch) => {
+export const setLoadingGlobal = (value) => (dispatch) => {
   dispatch({type: 'SET_LOADING', value: value});
 };
 
