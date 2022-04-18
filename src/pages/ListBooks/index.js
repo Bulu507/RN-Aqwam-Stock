@@ -16,7 +16,7 @@ export default function ListBooks({navigation}) {
   const {listData} = useSelector((state) => state.booksReducer);
 
   useEffect(() => {
-    dispatch(GetListBooks(form.searchParams));
+    dispatch(GetListBooks(form.searchParams, navigation));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [form.searchParams]);
 

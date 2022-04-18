@@ -51,9 +51,9 @@ const Logout = async (params) => {
         resolve(result.data);
       },
       (err) => {
-        const error = err.response.data.data.result;
-        const messageError = error[Object.keys(error)[0]];
-        reject(messageError);
+        const error = err.response;
+        console.log('err post', error);
+        reject(error);
       },
     );
   });

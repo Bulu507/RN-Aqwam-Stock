@@ -11,7 +11,9 @@ import {
 import {Alert, Button, Gap, Header, Input} from '../../components';
 import {useDispatch, useSelector} from 'react-redux';
 import {resetStockForm, setLoadingGlobal, setStockForm} from '../../configs';
-import {AddStock} from '../../services';
+import {AddStock, removeData} from '../../services';
+import {isEqual} from 'lodash';
+import {localDataPath} from '../../parameter';
 
 export default function UpdateStock({navigation, route}) {
   const title = route.params;
@@ -51,6 +53,10 @@ export default function UpdateStock({navigation, route}) {
     } catch (error) {
       console.log('error', error);
       showError('Terjadi kendala');
+      if (isEqual(error.status, 401)) {
+        removeData(localDataPath.DATA_USER);
+        navigation.replace('Login');
+      }
     }
     setShowAlert(false);
     dispatch(setLoadingGlobal(false));
@@ -107,7 +113,7 @@ export default function UpdateStock({navigation, route}) {
         </View>
         <Gap height={30} />
         <Button
-          disable={stockForm.jumlah < 1}
+          // disable={stockForm.jumlah < 1}
           title="Update Stock Opname"
           onPress={() => setShowAlert(true)}
         />

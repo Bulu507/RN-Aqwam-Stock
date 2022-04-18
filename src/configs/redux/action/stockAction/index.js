@@ -1,6 +1,8 @@
-import {GetListStockOpname} from '../../../../services';
+import {isEqual} from 'lodash';
+import {localDataPath} from '../../../../parameter';
+import {GetListStockOpname, removeData} from '../../../../services';
 import {showError} from '../../../../utils';
-import {setLoadingGlobal} from '../globalAction';
+import {setLoadingGlobal, setLogout} from '../globalAction';
 
 // Stock
 export const setStock = (key, value) => (dispatch) => {
@@ -15,7 +17,7 @@ export const replaceStock = (value) => (dispatch) => {
   dispatch({type: 'REPLACE_STOCK', value: value});
 };
 
-export const GetListStock = (search) => async (dispatch) => {
+export const GetListStock = (search, navigation) => async (dispatch) => {
   dispatch(setLoadingGlobal(true));
   try {
     const result = await GetListStockOpname(search);
@@ -25,6 +27,10 @@ export const GetListStock = (search) => async (dispatch) => {
   } catch (error) {
     console.log('error', error);
     showError('Terjadi kendala');
+    if (isEqual(error.status, 401)) {
+      removeData(localDataPath.DATA_USER);
+      navigation.replace('Login');
+    }
   }
   dispatch(setLoadingGlobal(false));
 };

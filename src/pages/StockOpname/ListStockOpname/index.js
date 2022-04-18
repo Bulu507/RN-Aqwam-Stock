@@ -16,12 +16,12 @@ export default function ListStockOpname({navigation}) {
   const {listData} = useSelector((state) => state.stockReducer);
 
   useEffect(() => {
-    dispatch(GetListStock(form.searchParams));
+    dispatch(GetListStock(form.searchParams, navigation));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [form.searchParams]);
 
   const refresh = () => {
-    dispatch(GetListStock(form.searchParams));
+    dispatch(GetListStock(form.searchParams, navigation));
   };
 
   console.log('cek listData', listData);
